@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 import rospy
 from moveit_commander import RobotCommander, PlanningSceneInterface, roscpp_initialize, roscpp_shutdown
@@ -10,13 +12,13 @@ if __name__=='__main__':
     robot = RobotCommander()
     rospy.sleep(1)
     # clean the scene
-    scene.remove_world_object("block1")
-    scene.remove_world_object("block2")
-    scene.remove_world_object("block3")
-    scene.remove_world_object("block4")
-    scene.remove_world_object("table")
-    scene.remove_world_object("bowl")
-    scene.remove_world_object("box")
+    #scene.remove_world_object("block1")
+    #scene.remove_world_object("block2")
+    #scene.remove_world_object("block3")
+    #scene.remove_world_object("block4")
+    #scene.remove_world_object("table")
+    #scene.remove_world_object("bowl")
+    #scene.remove_world_object("box")
     # publish a demo scene
     p = PoseStamped()
     p.header.frame_id = robot.get_planning_frame()
@@ -27,7 +29,6 @@ if __name__=='__main__':
     scene.add_box("block1", p, (0.044, 0.044, 0.044))
     p.pose.position.y = -0.2
     p.pose.position.z = 0.175
-    p.pose.orientation.w = 50
     scene.add_box("block2", p, (0.044, 0.044, 0.044))
     p.pose.position.x = 0.6
     p.pose.position.y = -0.7
